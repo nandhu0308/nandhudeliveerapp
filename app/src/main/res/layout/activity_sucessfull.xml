@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="8dp"
+            android:id="@+id/layout_relation"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/relationtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="RelationShip:"
+                android:textSize="16dp" />
+
+            <Spinner
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="14dp"
+                android:textSize="16dp"
+                android:text="Slect The RelationShip"
+                android:layout_toRightOf="@+id/relationtxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/relation_show"/>
+
+        </RelativeLayout>
+        <View
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:background="#3327adb4" />
+        <RelativeLayout
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="8dp"
+            android:id="@+id/layout_getting_user_id"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/relationtxtgetting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text=" User Id:"
+                android:textSize="16dp" />
+
+            <Spinner
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="45dp"
+                android:textSize="16dp"
+                android:text="Slect The RelationShip"
+                android:layout_toRightOf="@+id/relationtxtgetting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/getting_user_id_show"/>
+
+        </RelativeLayout>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:background="#3327adb4" />
+        <RelativeLayout
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center">
+            <TextView
+                android:id="@+id/useridnumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Id Number :"
+                android:textSize="16dp" />
+
+            <EditText
+                android:focusableInTouchMode="true"
+                android:background="@drawable/broadcast_drawable"
+                android:id="@+id/gating_user_id_number"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:paddingLeft="8dp"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/useridnumber"
+                android:hint="IdProof Number"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textSize="16dp" />
+        </RelativeLayout>
+            <View
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:background="#3327adb4" />
+            <RelativeLayout
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center">
+                <TextView
+                    android:id="@+id/mobilenumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Mobilenumber:"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:background="@drawable/broadcast_drawable"
+                    android:id="@+id/mobilenumberedit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:paddingLeft="8dp"
+                    android:layout_toRightOf="@+id/mobilenumber"
+                    android:hint="Mobile no"
+                    android:maxLength="10"
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:textSize="16dp" />
+            </RelativeLayout>
+            <View
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:background="#3327adb4" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="8dp">
+
+                <TextView
+                    android:id="@+id/receivelocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="location place:"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_toRightOf="@+id/receivelocation"
+                    android:id="@+id/receivedlocation"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:hint="lattitude"
+                    android:textSize="16dp" />
+            </RelativeLayout>
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:background="#3327adb4" />
+            <RelativeLayout
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/receivedtxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Received by:"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/receiver_name"
+                    android:paddingLeft="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="22dp"
+                    android:background="@drawable/broadcast_drawable"
+                    android:layout_toRightOf="@+id/receivedtxt"
+                    android:hint="Receiver name"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textSize="16dp" />
+            </RelativeLayout>
+            <View
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:background="#3327adb4" />
+
+            <RelativeLayout
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/remarkstxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Remarks     :"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/remarksedit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="8dp"
+                    android:layout_marginLeft="23dp"
+                    android:layout_toRightOf="@+id/remarkstxt"
+                    android:hint=" your opinion "
+                    android:inputType="text"
+                    android:maxLines="3"
+                    android:background="@drawable/broadcast_drawable"
+                    android:cursorVisible="true"
+                    android:gravity="top|left"
+                    android:textSize="16dp" />
+            </RelativeLayout>
+            <View
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:background="#3327adb4" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/digitaltxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Receiversign:"
+                    android:textSize="16dp" />
+                <Button
+                    android:background="@drawable/radio_right_butt_selector"
+                    android:id="@+id/signBtn"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="18dp"
+                    android:layout_toRightOf="@+id/digitaltxt"
+                    android:text="Signature"
+                    android:textSize="16dp" />
+            </RelativeLayout>
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/signImage"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center" />
+
+            <View
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:background="#3327adb4" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/scannedtxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="scanned copy:"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/scannbutton"
+                    android:background="@drawable/radio_right_butt_selector"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="12dp"
+                    android:layout_toRightOf="@+id/scannedtxt"
+                    android:text="camera      "
+                    android:textSize="16dp" />
+            </RelativeLayout>
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/scannImage"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#8C9EFF"
+        >
+        <Button
+            android:id="@+id/saveBtn"
+            android:background="@drawable/radio_right_butt_selector"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:text="save" />
+
+        <Button
+            android:layout_marginRight="22dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/radio_right_butt_selector"
+            android:id="@+id/clearBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="clear" />
+    </RelativeLayout>
+</RelativeLayout>

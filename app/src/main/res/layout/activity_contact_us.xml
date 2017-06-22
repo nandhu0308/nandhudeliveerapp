@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/newbackgound"
+   >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#90000000">
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_alignParentTop="true"
+       android:layout_alignParentStart="true">
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/contactEmail"
+           android:textSize="20dp"
+           android:text="Email us at support@haappyapp.com"
+           android:layout_above="@+id/call"
+           android:clickable="true"
+           android:layout_alignParentStart="true"
+           android:background="@drawable/bg_parent_rounded_corner"
+           android:layout_marginStart="14dp"
+           android:layout_marginBottom="101dp" />
+
+       <TextView
+           android:id="@+id/call"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textSize="20dp"
+           android:clickable="true"
+           android:text="Call us at 91 79030 95582"
+           android:background="@drawable/bg_parent_rounded_corner"
+           android:layout_marginBottom="177dp"
+           android:layout_alignParentBottom="true"
+           android:layout_centerHorizontal="true" />
+
+
+   </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

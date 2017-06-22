@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.raj.deliveryyy"
+    android:installLocation="preferExternal">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <application
+
+        android:allowBackup="true"
+        android:icon="@drawable/delevery5"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/delevery5"
+        android:supportsRtl="true"
+        android:name=".report.AppController"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ContactUsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Home_Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CaptureSignature.CaptureSignature"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".report.Report"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".status.StatusDesc"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Successfull.Sucessfull"
+        android:screenOrientation="portrait"/>
+        <activity android:name=".awb.AwbClass"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AwbDetails"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".UnDeliveredActivity"
+            android:screenOrientation="portrait"/>
+    </application>
+
+</manifest>
