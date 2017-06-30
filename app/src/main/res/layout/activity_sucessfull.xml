@@ -272,7 +272,9 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="8dp">
 
                 <TextView
                     android:id="@+id/digitaltxt"
@@ -312,7 +314,9 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="8dp">
 
                 <TextView
                     android:id="@+id/scannedtxt"

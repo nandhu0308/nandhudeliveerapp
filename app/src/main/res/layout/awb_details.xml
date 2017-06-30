@@ -14,32 +14,32 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="50dp">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_height="50dp">-->
 
-        <TextView
-            android:layout_gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:text="liveid :" />
-    <TextView
-        android:paddingLeft="15dp"
-        android:layout_gravity="center_vertical"
-        android:id="@+id/details_textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="65dp"
-        android:text="liveid" />
-    </LinearLayout>
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="1dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
-        android:background="#3327adb4" />
+        <!--<TextView-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:text="liveid :" />-->
+    <!--<TextView-->
+        <!--android:paddingLeft="15dp"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:id="@+id/details_textView1"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="65dp"-->
+        <!--android:text="liveid" />-->
+    <!--</LinearLayout>-->
+    <!--<View-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_marginLeft="2dp"-->
+        <!--android:layout_marginRight="2dp"-->
+        <!--android:background="#3327adb4" />-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -57,7 +57,7 @@
             android:id="@+id/details_textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="25dp"
             android:text="Awb number" />
     </LinearLayout>
     <View
@@ -76,14 +76,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:text="City Code :" />
+            android:text="Orgin Code :" />
         <TextView
             android:paddingLeft="15dp"
             android:layout_gravity="center_vertical"
             android:id="@+id/details_textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
+            android:layout_marginLeft="38dp"
             android:text="city code" />
     </LinearLayout>
     <View
@@ -102,16 +102,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:text="Svc Code :" />
+            android:text="Destination Code :" />
         <TextView
             android:paddingLeft="15dp"
             android:layout_gravity="center_vertical"
             android:id="@+id/details_textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
+            android:layout_marginLeft="3dp"
             android:text="svc code" />
     </LinearLayout>
+    <!--<View-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_marginLeft="2dp"-->
+        <!--android:layout_marginRight="2dp"-->
+        <!--android:background="#3327adb4" />-->
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:orientation="horizontal">-->
+        <!--<TextView-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:text="Sender Name :" />-->
+        <!--<TextView-->
+            <!--android:paddingLeft="15dp"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:id="@+id/details_textView5"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="25dp"-->
+            <!--android:text="sender" />-->
+    <!--</LinearLayout>-->
     <View
         android:layout_width="wrap_content"
         android:layout_height="1dp"
@@ -127,32 +152,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:text="Date and Time :" />
-        <TextView
-            android:paddingLeft="15dp"
-            android:layout_gravity="center_vertical"
-            android:id="@+id/details_textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="scan date and time" />
-    </LinearLayout>
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="1dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
-        android:background="#3327adb4" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:text="Status Code :" />
+            android:text="Receiver Name :" />
 
         <TextView
             android:paddingLeft="15dp"
@@ -161,7 +161,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="status code" />
+            android:text="receiver" />
     </LinearLayout>
     <View
         android:layout_width="wrap_content"
@@ -178,7 +178,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:text="Empcode Code :" />
+            android:text="Weight :" />
 
         <TextView
             android:paddingLeft="15dp"
@@ -186,8 +186,8 @@
             android:id="@+id/details_textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:text="empcode code" />
+            android:layout_marginLeft="69dp"
+            android:text="weight in grams" />
     </LinearLayout>
     <View
         android:layout_width="wrap_content"
@@ -204,15 +204,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:text="Eempcode :" />
+            android:text="Amount :" />
         <TextView
             android:paddingLeft="15dp"
             android:layout_gravity="center_vertical"
             android:id="@+id/details_textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="33dp"
-            android:text="eempcode" />
+            android:layout_marginLeft="69dp"
+            android:text="amount" />
     </LinearLayout>
     <View
         android:layout_width="wrap_content"
@@ -220,52 +220,52 @@
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
         android:background="#3327adb4" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:text="Delivery Printno :" />
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:orientation="horizontal">-->
+        <!--<TextView-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:text="Delivery Printno :" />-->
 
-        <TextView
-            android:paddingLeft="15dp"
-            android:layout_gravity="center_vertical"
-            android:id="@+id/details_textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:text="Delivery Printno" />
-    </LinearLayout>
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="1dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
-        android:background="#3327adb4" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:text="print Order :" />
+        <!--<TextView-->
+            <!--android:paddingLeft="15dp"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:id="@+id/details_textView9"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="3dp"-->
+            <!--android:text="Delivery Printno" />-->
+    <!--</LinearLayout>-->
+    <!--<View-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_marginLeft="2dp"-->
+        <!--android:layout_marginRight="2dp"-->
+        <!--android:background="#3327adb4" />-->
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:orientation="horizontal">-->
+        <!--<TextView-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:text="print Order :" />-->
 
-        <TextView
-            android:paddingLeft="13dp"
-            android:layout_gravity="center_vertical"
-            android:id="@+id/details_textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="38dp"
-            android:text="print order" />
-    </LinearLayout>
+        <!--<TextView-->
+            <!--android:paddingLeft="13dp"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:id="@+id/details_textView10"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="38dp"-->
+            <!--android:text="print order" />-->
+    <!--</LinearLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"
