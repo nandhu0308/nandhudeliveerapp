@@ -179,6 +179,7 @@ public class Sucessfull extends AppCompatActivity {
         Log.e("userIdnumber", userIdnumber);
 
         gating_user_id_number = (EditText) findViewById(R.id.gating_user_id_number);
+       // gating_user_id_number.setFocusable(false);
         mobilenumberedit = (EditText) findViewById(R.id.mobilenumberedit);
         receiver_name = (EditText) findViewById(R.id.receiver_name);
         remarksedit = (EditText) findViewById(R.id.remarksedit);
@@ -194,24 +195,23 @@ public class Sucessfull extends AppCompatActivity {
                 if (connectionChecker.isNetworkAvailable(Sucessfull.this)) {
 //                    if (idNo.isEmpty()) {
 //                        Toast.makeText(Sucessfull.this, "enter Id number", Toast.LENGTH_LONG).show();
-//                    }
-                    if (phoneNo.isEmpty()) {
-                        Toast.makeText(Sucessfull.this, "enter Phone Number", Toast.LENGTH_LONG).show();
+//                    }((phoneNo.length() >= 7) && (phoneNo.length() <= 11))
+                    if (phoneNo==null && (phoneNo.length()<= 9)) {
+                        Toast.makeText(Sucessfull.this, "Enter Valid Phone Number", Toast.LENGTH_LONG).show();
                     } else if (revdBy.isEmpty()) {
                         Toast.makeText(Sucessfull.this, "Enter Received By Name", Toast.LENGTH_LONG).show();
                     }
 //                    else if (remarks.isEmpty()) {
 //                        Toast.makeText(Sucessfull.this, "Enter Remarks", Toast.LENGTH_LONG).show();
 //                    }
+                   else if (TextUtils.isEmpty(signatureImg)) {
+                        Toast.makeText(Sucessfull.this, "Put Signature", Toast.LENGTH_LONG).show();
+                    }
                     else if (TextUtils.isEmpty(scanImg)) {
                         Toast.makeText(Sucessfull.this, "Put Image", Toast.LENGTH_LONG).show();
-                    } else if (TextUtils.isEmpty(signatureImg)) {
-                        Toast.makeText(Sucessfull.this, "Put Signature", Toast.LENGTH_LONG).show();
-                    } else if ( !phoneNo.isEmpty() && !revdBy.isEmpty() &&  !TextUtils.isEmpty(signatureImg) && !TextUtils.isEmpty(scanImg)) {
+                    }else if ( !phoneNo.isEmpty() && !revdBy.isEmpty() &&  !TextUtils.isEmpty(signatureImg) && !TextUtils.isEmpty(scanImg)) {
                         send_all_deta();
-                        Intent intent = new Intent(Sucessfull.this, Home_Activity.class);
-                        startActivity(intent);
-                        finish();
+
                     }
                 } else {
                     Toast.makeText(Sucessfull.this, "No Internet Connection", Toast.LENGTH_LONG).show();
@@ -286,6 +286,7 @@ public class Sucessfull extends AppCompatActivity {
         });
     }
 
+
     Button.OnClickListener onButtonClick = new Button.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -305,6 +306,8 @@ public class Sucessfull extends AppCompatActivity {
                     "Lat: " + latitude + "\nLong: " + longitude);
         }
     }
+
+
 
     private void buildAlertMessageNoGps() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -483,6 +486,9 @@ public class Sucessfull extends AppCompatActivity {
                     JSONObject object = new JSONObject(response);
                     String message = object.getString("message");
                     Toast.makeText(Sucessfull.this, message, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Sucessfull.this, Home_Activity.class);
+                    startActivity(intent);
+                    finish();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -509,12 +515,10 @@ public class Sucessfull extends AppCompatActivity {
                 }
             }
         }) {
-
             @Override
             public String getBodyContentType() {
                 return "application/json";
             }
-
             @Override
             public byte[] getBody() throws AuthFailureError {
                 Map<String, Object> params = new HashMap<String, Object>();
@@ -540,7 +544,6 @@ public class Sucessfull extends AppCompatActivity {
                 params.put("edpFlag", Edp_Flage);
                 params.put("relationId", relationId);
                 params.put("signatureImg", signatureImg);
-
 
                 Log.e("delivered", String.valueOf(deliverd));
                 Log.e("deliveryEmpCode", employeeCode);

@@ -19,19 +19,24 @@
         android:layout_gravity="center">
 
         <Button
-            android:background="@drawable/radio_right_butt_selector"
+            android:background="@drawable/butt_login"
             android:id="@+id/assignedBtn"
             android:text="assigned"
+            android:textColor="#fff"
+            android:textStyle="italic"
+            android:textSize="16dp"
             android:layout_margin="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             />
-
         <Button
             android:layout_margin="20dp"
-            android:background="@drawable/radio_right_butt_selector"
+            android:textColor="#fff"
+            android:textSize="16dp"
+            android:textStyle="italic"
+            android:background="@drawable/butt_login"
             android:id="@+id/reportBtn"
             android:text="report"
             android:layout_width="match_parent"

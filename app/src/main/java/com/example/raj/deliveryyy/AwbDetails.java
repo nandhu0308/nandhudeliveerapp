@@ -79,10 +79,8 @@ public class AwbDetails extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.e("Responce Awb details",response);
-
                 progressDialog.dismiss();
                 try {
-
                     JSONObject jsonObject=new JSONObject(response);
                     SharedPreferences sharedPreferences=getSharedPreferences("liveId", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor1=sharedPreferences.edit();
@@ -115,8 +113,6 @@ public class AwbDetails extends AppCompatActivity {
                     deliveryPrintNo.setText(jsonObject.getString(Contants.KEY_AWB_DELIVERYPRINTNO));
                     printOrder=(TextView)findViewById(R.id.details_textView10);
                     printOrder.setText(jsonObject.getString(Contants.KEY_AWB_PRINTORDER));
-
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -124,31 +120,24 @@ public class AwbDetails extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
                 progressDialog.dismiss();
                 Toast.makeText(AwbDetails.this, error.toString(), Toast.LENGTH_LONG).show();
             }
-
-
         }) {
             @Override
             public String getBodyContentType() {
                 return "application/json";
             }
-
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> headers = new HashMap<>();
                 headers.put("Accept", "application/json");
                 headers.put("Authorization", pref.getString("authToken",""));
-
                 return headers;
             }
-
         };
         stringRequest.setRetryPolicy(new DefaultRetryPolicy(20000,DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }

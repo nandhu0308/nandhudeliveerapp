@@ -2,5 +2,4 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@drawable/repal" android:state_checked="true"  />
     <item android:drawable="@drawable/radio_right_back" android:state_checked="false"/>
-
 </selector>

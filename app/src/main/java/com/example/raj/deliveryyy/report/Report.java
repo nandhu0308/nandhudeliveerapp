@@ -24,16 +24,17 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.raj.deliveryyy.Contants;
 import com.example.raj.deliveryyy.InternetConnectionChecker;
 import com.example.raj.deliveryyy.R;
-import com.example.raj.deliveryyy.awb.AwbClass;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -52,10 +53,12 @@ import java.util.Map;
 public class Report extends AppCompatActivity {
     CustomAdepter adepter;
     Spinner_Report_Adapter spinner_report_adapter;
+    Spinner_Report_Adapter_new spinner_report_adapter_new;
     Undelevered_Report_Adapter undelevered_report_adapter;
     ListView listView;
     private ArrayList<Report_Model> deta_item;
     private ArrayList<Undeliverd_Model> undelivery_deta_item;
+    private ArrayList<String> spinner_list=new ArrayList<String>();
     ArrayList<Spinner_Model> spinner_deta_item = new ArrayList<Spinner_Model>();
     private int year;
     private int month;
@@ -70,12 +73,19 @@ public class Report extends AppCompatActivity {
     private DatePickerDialog fromDatePickerDialog;
     private DatePickerDialog todatePickerDialog;
     Spinner report_spinner;
+    InternetConnectionChecker connectionChecker;
     int spinner_position=0;
     ProgressDialog progressDialog;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_report);
+        connectionChecker = new InternetConnectionChecker();
+        report_spinner=(Spinner)findViewById(R.id.report_spinner);
+        spinner_list.add("Delivered");
+        spinner_list.add("UnDelivered");
+        spinner_report_adapter_new=new Spinner_Report_Adapter_new(Report.this,spinner_list);
+        report_spinner.setAdapter(spinner_report_adapter_new);
         getSupportActionBar().show();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Report");
@@ -104,7 +114,7 @@ public class Report extends AppCompatActivity {
         enddatetext.setText(start__date);
         Log.e("date formate",end__date);
         edit_date_clivk();
-        spinnervolely();
+       // spinnervolely();
         SharedPreferences sharedPreferences = getSharedPreferences("employeecode", Context.MODE_PRIVATE);
         EmployCode=sharedPreferences.getString("employeecodeee","notify");
         Log.e("EmployCode",EmployCode);
@@ -121,14 +131,23 @@ public class Report extends AppCompatActivity {
                 if (spinner_position==0){
                     //  undelevered_report_adapter.notifyDataSetChanged();
                     undelivery_deta_item.clear();
-                    report_delevired_voly();
+                    if (connectionChecker.isNetworkAvailable(Report.this)){
+                        report_delevired_voly();
+                    }else {
+                        Toast.makeText(Report.this, "No Internet Connection", Toast.LENGTH_LONG).show();
+                    }
                     for (Undeliverd_Model model : undelivery_deta_item) {
                         undelivery_deta_item.add(model);
                     }
                 } else {
                     //  adepter.notifyDataSetChanged();
                     deta_item.clear();
-                    report_undelevired_voly();
+                    if (connectionChecker.isNetworkAvailable(Report.this)){
+                        report_undelevired_voly();
+                    }else {
+                        Toast.makeText(Report.this, "No Internet Connection", Toast.LENGTH_LONG).show();
+                    }
+
                     for (Report_Model model : deta_item) {
                         deta_item.add(model);
                     }
@@ -136,7 +155,7 @@ public class Report extends AppCompatActivity {
             }
         });
         listView = (ListView) findViewById(R.id.listview);
-        report_spinner=(Spinner)findViewById(R.id.report_spinner);
+
         report_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -247,11 +266,9 @@ public class Report extends AppCompatActivity {
                 return heder;
             }
         };
-        sr.setRetryPolicy(new DefaultRetryPolicy(
-                60000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        AppController.getInstance().addToRequestQueue(sr);
+        sr.setRetryPolicy(new DefaultRetryPolicy(20000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(sr);
     }
     public void report_delevired_voly() {
         progressDialog = new ProgressDialog(Report.this);
@@ -329,11 +346,9 @@ public class Report extends AppCompatActivity {
                 return heder;
             }
         };
-        sr.setRetryPolicy(new DefaultRetryPolicy(
-                100000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        AppController.getInstance().addToRequestQueue(sr);
+        sr.setRetryPolicy(new DefaultRetryPolicy(20000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(sr);
     }
     public void report_undelevired_voly() {
         progressDialog = new ProgressDialog(Report.this);
@@ -409,11 +424,9 @@ public class Report extends AppCompatActivity {
                 return heder;
             }
         };
-        sr.setRetryPolicy(new DefaultRetryPolicy(
-                100000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        AppController.getInstance().addToRequestQueue(sr);
+        sr.setRetryPolicy(new DefaultRetryPolicy(20000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(sr);
     }
 
     @Override

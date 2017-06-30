@@ -136,7 +136,7 @@
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
                 android:layout_marginTop="8dp"
-                android:background="#3327adb4" />
+                android:background="#40e91e63" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -171,15 +171,17 @@
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
                 android:layout_marginTop="8dp"
-                android:background="#3327adb4" />
+                android:background="#40e91e63" />
 
             <Button
                 android:layout_width="150dp"
                 android:layout_gravity="center_horizontal"
                 android:text="Submit"
+                android:textSize="16dp"
+                android:textColor="#fff"
                 android:layout_marginTop="15dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/radio_right_butt_selector"
+                android:background="@drawable/butt_login"
                 android:id="@+id/undelivered_save_button"
                 />
 

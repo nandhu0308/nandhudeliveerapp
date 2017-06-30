@@ -147,9 +147,7 @@ public class UnDeliveredActivity extends AppCompatActivity{
                         Toast.makeText(UnDeliveredActivity.this, "enter Remarks", Toast.LENGTH_LONG).show();
                     }   else if (!remarks.isEmpty()) {
                         send_all_deta_undelivered();
-                        Intent intent = new Intent(UnDeliveredActivity.this, Home_Activity.class);
-                        startActivity(intent);
-                        finish();
+
                     }
                 } else {
                     Toast.makeText(UnDeliveredActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
@@ -231,6 +229,9 @@ public class UnDeliveredActivity extends AppCompatActivity{
                     String message = object.getString("message");
                     Toast.makeText(UnDeliveredActivity.this, message, Toast.LENGTH_SHORT).show();
                     System.out.println("Home_Activity.onResponseeeee" + response);
+                    Intent intent = new Intent(UnDeliveredActivity.this, Home_Activity.class);
+                    startActivity(intent);
+                    finish();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

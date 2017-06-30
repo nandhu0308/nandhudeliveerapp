@@ -16,13 +16,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.raj.deliveryyy.awb.AwbClass;
 import com.example.raj.deliveryyy.report.Report;
@@ -61,7 +59,8 @@ public class Home_Activity extends AppCompatActivity {
 
         Log.e("user name",username);
         usertextdisply=(TextView)findViewById(R.id.usertextdisply);
-        usertextdisply.setText(username);
+        usertextdisply.setSelected(true);
+        usertextdisply.setText("Profile Name :- "+username);
         assigned=(Button)findViewById(R.id.assignedBtn);
         assigned.setOnClickListener(new View.OnClickListener()
         {

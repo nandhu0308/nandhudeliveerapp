@@ -17,6 +17,8 @@
             >
 
             <TextView
+                android:textColor="#000"
+                android:textStyle="italic"
                 android:gravity="center_vertical"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
@@ -44,6 +46,8 @@
             >
 
             <TextView
+                android:textColor="#000"
+                android:textStyle="italic"
                 android:gravity="center_vertical"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
@@ -66,7 +70,7 @@
         android:layout_below="@+id/RelationDescription"
         android:layout_width="match_parent"
         android:layout_height="0.3dp"
-        android:background="@color/colorPrimary" />
+        android:background="#40e91e63" />
     <Spinner
         android:layout_width="match_parent"
         android:id="@+id/report_spinner"
@@ -76,8 +80,8 @@
        android:layout_margin="10dp"
         android:text="Show Report"
         android:textSize="16dp"
-        android:background="@drawable/radio_right_butt_selector"
-        android:textColor="@android:color/black"
+        android:background="@drawable/butt_login"
+        android:textColor="#fff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button_show_report"/>
