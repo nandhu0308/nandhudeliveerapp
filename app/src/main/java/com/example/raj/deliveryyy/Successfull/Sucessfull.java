@@ -100,7 +100,8 @@ public class Sucessfull extends AppCompatActivity {
     int import_Flage;
 
 
-    String employeeCode, Svc_code, eempCode, liveId, awbNo, statusCode, userIdnumber, scanImg, signatureImg, remarks, idNo, phoneNo, revdBy, statusTime, statusDate;
+
+    String employeeCode,destination, Svc_code, eempCode, liveId, awbNo, statusCode, userIdnumber, scanImg, signatureImg, remarks, idNo, phoneNo, revdBy, statusTime, statusDate;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -142,20 +143,25 @@ public class Sucessfull extends AppCompatActivity {
             }
         }
 
+
+
         SharedPreferences pref = getApplicationContext().getSharedPreferences("liveId", MODE_PRIVATE);
         liveId = pref.getString("liveIde", "details");
         awbNo = pref.getString("awbNo", "details");
         eempCode= pref.getString("eemp_code", "details");
-        Svc_code = pref.getString("svc_code", "details");
+//        Svc_code = pref.getString("svc_code", "details");
         Edp_Flage = pref.getBoolean("Edp_Flag", false);
         import_Flage = pref.getInt("Import_Flag",0);
         Log.e("livenumber", liveId);
         Log.e("awbNonumber", awbNo);
-        Log.e("orgSvc", Svc_code);
-        Log.e("dstSvc", Svc_code);
+//        Log.e("orgSvc", Svc_code);
+//        Log.e("dstSvc", Svc_code);
         Log.e("eemp_code",eempCode);
         Log.e("Edp_Flage", String.valueOf(Edp_Flage));
 
+        SharedPreferences pref1 = getApplicationContext().getSharedPreferences("svc", MODE_PRIVATE);
+        Svc_code = pref1.getString("orgin", "details");
+        destination = pref1.getString("destination", "details");
         DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
         dateFormatter.setLenient(false);
         Date today = new Date();
@@ -538,7 +544,7 @@ public class Sucessfull extends AppCompatActivity {
                 params.put("statusTime", statusTime);
                 params.put("statusDate", statusDate);
                 params.put("orgSvc", Svc_code);
-                params.put("dstSvc", Svc_code);
+                params.put("dstSvc", destination);
                 params.put("eempCode", eempCode);
                 params.put("importFlag", import_Flage);
                 params.put("edpFlag", Edp_Flage);
@@ -563,7 +569,7 @@ public class Sucessfull extends AppCompatActivity {
                 Log.e("relationId", String.valueOf(relationId));
                 Log.e("signatureImg", signatureImg);
                 Log.e("orgSvc", Svc_code);
-                Log.e("dstSvc", Svc_code);
+                Log.e("dstSvc", destination);
                 Log.e("eemp_code", eempCode);
                 Log.e("Edp_Flage", String.valueOf(Edp_Flage));
 

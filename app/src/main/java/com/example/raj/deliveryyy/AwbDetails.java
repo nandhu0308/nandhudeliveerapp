@@ -95,10 +95,10 @@ public class AwbDetails extends AppCompatActivity {
                     editor1.apply();
                     JSONObject j= (JSONObject) jsonObject.get("shipment");
                     SharedPreferences preferences=getSharedPreferences("svc", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor2=sharedPreferences.edit();
-                    editor1.putString("orgin",jsonObject.getString("orgSvc"));
-                    editor1.putString("destination",jsonObject.getString("dstSvc"));
-                    editor1.apply();
+                    SharedPreferences.Editor editor2=preferences.edit();
+                    editor2.putString("orgin",j.getString("orgSvc"));
+                    editor2.putString("destination",j.getString("dstSvc"));
+                    editor2.apply();
 
 
                     TextView orgSvc,dstSvc,receiverName,weight,amount;

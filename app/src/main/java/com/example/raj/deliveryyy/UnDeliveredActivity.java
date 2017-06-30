@@ -79,7 +79,7 @@ public class UnDeliveredActivity extends AppCompatActivity{
     boolean Edp_Flage=false;
     TextView receivedlocationlat;
     int import_Flage,importFlag;
-    String employeeCode,liveId,awbNo,statusCode,remarks,statusTime,statusDate,Svc_code, eempCode,phoneNo,revdBy;
+    String employeeCode,destination,liveId,awbNo,statusCode,remarks,statusTime,statusDate,Svc_code, eempCode,phoneNo,revdBy;
     String eemp_code;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -159,15 +159,20 @@ public class UnDeliveredActivity extends AppCompatActivity{
         liveId=pref.getString("liveIde","details");
         awbNo=pref.getString("awbNo","details");
         eempCode = pref.getString("eemp_code", "details");
-        Svc_code = pref.getString("svc_code", "details");
+       // Svc_code = pref.getString("svc_code", "details");
         Edp_Flage = pref.getBoolean("Edp_Flag", false);
         importFlag = pref.getInt("Import_Flag",0);
         Log.e("livenumber", liveId);
         Log.e("awbNonumber", awbNo);
-        Log.e("orgSvc", Svc_code);
-        Log.e("dstSvc", Svc_code);
+//        Log.e("orgSvc", Svc_code);
+//        Log.e("dstSvc", Svc_code);
         Log.e("eemp_code", eempCode);
         Log.e("Edp_Flage", String.valueOf(Edp_Flage));
+
+        SharedPreferences pref1 = getApplicationContext().getSharedPreferences("svc", MODE_PRIVATE);
+        Svc_code = pref1.getString("orgin", "details");
+        destination = pref1.getString("destination", "details");
+
         DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
         dateFormatter.setLenient(false);
         Date today = new Date();
@@ -294,7 +299,7 @@ public class UnDeliveredActivity extends AppCompatActivity{
                 params.put("longitude", String.valueOf(longitude));
                 params.put("latitude", String.valueOf(latitude));
                 params.put("orgSvc", Svc_code);
-                params.put("dstSvc", Svc_code);
+                params.put("dstSvc", destination);
                 params.put("eempCode", eempCode);
                 params.put("importFlag", import_Flage);
                 params.put("edpFlag", Edp_Flage);
@@ -315,7 +320,7 @@ public class UnDeliveredActivity extends AppCompatActivity{
 //                Log.e("revdBy", revdBy);
                 Log.e("statusDate", statusDate);
                 Log.e("orgSvc", Svc_code);
-                Log.e("dstSvc", Svc_code);
+                Log.e("dstSvc", destination);
                 Log.e("eemp_code", eempCode);
                 Log.e("Edp_Flage", String.valueOf(Edp_Flage));
 
