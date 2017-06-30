@@ -354,7 +354,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:background="#8C9EFF"
+        android:background="@color/colorPrimary"
         >
         <Button
             android:id="@+id/saveBtn"

@@ -21,7 +21,7 @@ public class Contants {
     public static final String KEY_AWB_PRINTORDER="printOrder";
 
 
-    public static final  String BASE_URL="http://192.168.17.47:8080/backend-delivery/delivery/";
+    public static final  String BASE_URL="http://192.168.17.212:8080/backend-delivery/delivery/";
     public static String getBaseUrl()
     {
         return BASE_URL;

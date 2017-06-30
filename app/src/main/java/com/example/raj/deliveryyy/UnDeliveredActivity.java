@@ -22,8 +22,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +32,7 @@ import com.android.volley.NetworkResponse;
 import com.android.volley.NoConnectionError;
 import com.android.volley.ParseError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
@@ -41,11 +40,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.raj.deliveryyy.Location.GPSTracker;
-import com.example.raj.deliveryyy.Successfull.Getting_User_ID_List_Adapter;
-import com.example.raj.deliveryyy.Successfull.Getting_User_ID_List_Model;
-import com.example.raj.deliveryyy.Successfull.Relationship_Adapter;
-import com.example.raj.deliveryyy.report.AppController;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
@@ -79,7 +75,7 @@ public class UnDeliveredActivity extends AppCompatActivity{
     GoogleApiAvailability googleApiAvailability;
     boolean deliverd= false;
     double latitude,longitude;
-    EditText  mobilenumberedit, receiver_name;
+//    EditText  mobilenumberedit, receiver_name;
     boolean Edp_Flage=false;
     TextView receivedlocationlat;
     int import_Flage,importFlag;
@@ -97,8 +93,8 @@ public class UnDeliveredActivity extends AppCompatActivity{
         getSupportActionBar().setTitle("UnDeleviery Information");
         undelivered_save_button=(Button)findViewById(R.id.undelivered_save_button);
 
-        mobilenumberedit = (EditText) findViewById(R.id.mobilenumberedit);
-        receiver_name = (EditText) findViewById(R.id.receiverName);
+//        mobilenumberedit = (EditText) findViewById(R.id.mobilenumberedit);
+//        receiver_name = (EditText) findViewById(R.id.receiverName);
         undelivered_save_edittext=(EditText)findViewById(R.id.remarksedit) ;
 
         statusCode=getIntent().getStringExtra("StatusCodeundelivery");
@@ -138,17 +134,18 @@ public class UnDeliveredActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 remarks=undelivered_save_edittext.getText().toString();
-                phoneNo = mobilenumberedit.getText().toString().trim();
-                revdBy = receiver_name.getText().toString().trim();
+//                phoneNo = mobilenumberedit.getText().toString().trim();
+//                revdBy = receiver_name.getText().toString().trim();
 
                 if (connectionChecker.isNetworkAvailable(UnDeliveredActivity.this)) {
-                   if (phoneNo.isEmpty()) {
-                        Toast.makeText(UnDeliveredActivity.this, "enter Phone Number", Toast.LENGTH_SHORT).show();
-                    } else if (revdBy.isEmpty()) {
-                        Toast.makeText(UnDeliveredActivity.this, "enter Reciver Name", Toast.LENGTH_SHORT).show();
-                    } else if (remarks.isEmpty()) {
+//                   if (phoneNo.isEmpty()) {
+//                        Toast.makeText(UnDeliveredActivity.this, "enter Phone Number", Toast.LENGTH_SHORT).show();
+//                    } else if (revdBy.isEmpty()) {
+//                        Toast.makeText(UnDeliveredActivity.this, "enter Reciver Name", Toast.LENGTH_SHORT).show();
+//                    }
+                    if (remarks.isEmpty()) {
                         Toast.makeText(UnDeliveredActivity.this, "enter Remarks", Toast.LENGTH_LONG).show();
-                    }   else if ( !phoneNo.isEmpty() && !revdBy.isEmpty() && !remarks.isEmpty()) {
+                    }   else if (!remarks.isEmpty()) {
                         send_all_deta_undelivered();
                         Intent intent = new Intent(UnDeliveredActivity.this, Home_Activity.class);
                         startActivity(intent);
@@ -300,8 +297,8 @@ public class UnDeliveredActivity extends AppCompatActivity{
                 params.put("eempCode", eempCode);
                 params.put("importFlag", import_Flage);
                 params.put("edpFlag", Edp_Flage);
-                params.put("phoneNo", phoneNo);
-                params.put("revdBy", revdBy);
+//                params.put("phoneNo", phoneNo);
+//                params.put("revdBy", revdBy);
 
 
                 Log.e("delivered", String.valueOf(deliverd));
@@ -313,8 +310,8 @@ public class UnDeliveredActivity extends AppCompatActivity{
                 Log.e("latitude", String.valueOf(latitude));
                 Log.e("remarks", remarks);
                 Log.e("statusTime", statusTime);
-                Log.e("phoneNo", phoneNo);
-                Log.e("revdBy", revdBy);
+//                Log.e("phoneNo", phoneNo);
+//                Log.e("revdBy", revdBy);
                 Log.e("statusDate", statusDate);
                 Log.e("orgSvc", Svc_code);
                 Log.e("dstSvc", Svc_code);
@@ -334,11 +331,9 @@ public class UnDeliveredActivity extends AppCompatActivity{
                 return heder;
             }
         };
-        sr.setRetryPolicy(new DefaultRetryPolicy(
-                60000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        AppController.getInstance().addToRequestQueue(sr);
+        sr.setRetryPolicy(new DefaultRetryPolicy(20000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(sr);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

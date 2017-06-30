@@ -40,19 +40,20 @@ import com.android.volley.NetworkError;
 import com.android.volley.NoConnectionError;
 import com.android.volley.ParseError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.raj.deliveryyy.CaptureSignature.CaptureSignature;
 import com.example.raj.deliveryyy.Contants;
 import com.example.raj.deliveryyy.Home_Activity;
 import com.example.raj.deliveryyy.InternetConnectionChecker;
 import com.example.raj.deliveryyy.Location.GPSTracker;
 import com.example.raj.deliveryyy.R;
-import com.example.raj.deliveryyy.report.AppController;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
@@ -191,19 +192,22 @@ public class Sucessfull extends AppCompatActivity {
                 revdBy = receiver_name.getText().toString().trim();
                 remarks = remarksedit.getText().toString().trim();
                 if (connectionChecker.isNetworkAvailable(Sucessfull.this)) {
-                    if (idNo.isEmpty()) {
-                        Toast.makeText(Sucessfull.this, "enter Id number", Toast.LENGTH_LONG).show();
-                    } else if (phoneNo.isEmpty()) {
+//                    if (idNo.isEmpty()) {
+//                        Toast.makeText(Sucessfull.this, "enter Id number", Toast.LENGTH_LONG).show();
+//                    }
+                    if (phoneNo.isEmpty()) {
                         Toast.makeText(Sucessfull.this, "enter Phone Number", Toast.LENGTH_LONG).show();
                     } else if (revdBy.isEmpty()) {
                         Toast.makeText(Sucessfull.this, "Enter Received By Name", Toast.LENGTH_LONG).show();
-                    } else if (remarks.isEmpty()) {
-                        Toast.makeText(Sucessfull.this, "Enter Remarks", Toast.LENGTH_LONG).show();
-                    } else if (TextUtils.isEmpty(scanImg)) {
+                    }
+//                    else if (remarks.isEmpty()) {
+//                        Toast.makeText(Sucessfull.this, "Enter Remarks", Toast.LENGTH_LONG).show();
+//                    }
+                    else if (TextUtils.isEmpty(scanImg)) {
                         Toast.makeText(Sucessfull.this, "Put Image", Toast.LENGTH_LONG).show();
                     } else if (TextUtils.isEmpty(signatureImg)) {
                         Toast.makeText(Sucessfull.this, "Put Signature", Toast.LENGTH_LONG).show();
-                    } else if (!idNo.isEmpty() && !phoneNo.isEmpty() && !revdBy.isEmpty() && !remarks.isEmpty() && !TextUtils.isEmpty(signatureImg) && !TextUtils.isEmpty(scanImg)) {
+                    } else if ( !phoneNo.isEmpty() && !revdBy.isEmpty() &&  !TextUtils.isEmpty(signatureImg) && !TextUtils.isEmpty(scanImg)) {
                         send_all_deta();
                         Intent intent = new Intent(Sucessfull.this, Home_Activity.class);
                         startActivity(intent);
@@ -414,11 +418,9 @@ public class Sucessfull extends AppCompatActivity {
                 return heder;
             }
         };
-        sr.setRetryPolicy(new DefaultRetryPolicy(
-                60000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        AppController.getInstance().addToRequestQueue(sr);
+        sr.setRetryPolicy(new DefaultRetryPolicy(20000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(sr);
     }
 
     public void gating_user_id_volley() {
@@ -466,11 +468,9 @@ public class Sucessfull extends AppCompatActivity {
                 return heder;
             }
         };
-        sr.setRetryPolicy(new DefaultRetryPolicy(
-                60000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        AppController.getInstance().addToRequestQueue(sr);
+        sr.setRetryPolicy(new DefaultRetryPolicy(20000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(sr);
     }
 
     public void send_all_deta() {
@@ -576,11 +576,9 @@ public class Sucessfull extends AppCompatActivity {
                 return heder;
             }
         };
-        sr.setRetryPolicy(new DefaultRetryPolicy(
-                60000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        AppController.getInstance().addToRequestQueue(sr);
+        sr.setRetryPolicy(new DefaultRetryPolicy(20000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(sr);
     }
 
     private void insertDummyContactWrapper() {
