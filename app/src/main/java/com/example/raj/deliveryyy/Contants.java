@@ -11,12 +11,12 @@ public class Contants {
 
     public static final String KEY_AWB_LIVEID="liveId";
     public static final String KEY_AWB_AWBNO="awbNo";
-    public static final String KEY_AWB_CITYCODE="cityCode";
-    public static final String KEY_AWB_SVCCODE="svcCode";
+    public static final String KEY_AWB_CITYCODE="orgSvc";
+    public static final String KEY_AWB_SVCCODE="dstSvc";
     public static final String KEY_AWB_SCANDTTIME="scanDtTime";
-    public static final String KEY_AWB_STATUSCODE="statusCode";
-    public static final String KEY_AWB_EMPCODE="empCode";
-    public static final String KEY_AWB_EEMPCODE="eempCode";
+    public static final String KEY_AWB_STATUSCODE="coneeName";
+    public static final String KEY_AWB_EMPCODE="actWgt";
+    public static final String KEY_AWB_EEMPCODE="codAmount";
     public static final String KEY_AWB_DELIVERYPRINTNO="deliveryPrintNo";
     public static final String KEY_AWB_PRINTORDER="printOrder";
 

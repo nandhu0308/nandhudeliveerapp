@@ -93,28 +93,55 @@ public class AwbDetails extends AppCompatActivity {
                     editor1.putBoolean("Edp_Flag",jsonObject.getBoolean("edpFlag"));
                     editor1.putInt("Import_Flag",jsonObject.getInt("importFlag"));
                     editor1.apply();
+                    JSONObject j= (JSONObject) jsonObject.get("shipment");
+                    SharedPreferences preferences=getSharedPreferences("svc", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor2=sharedPreferences.edit();
+                    editor1.putString("orgin",jsonObject.getString("orgSvc"));
+                    editor1.putString("destination",jsonObject.getString("dstSvc"));
+                    editor1.apply();
 
-                    TextView liveId,awbNo,cityCode,svcCode,scanDtTime,statusCode,empCode,eempCode,deliveryPrintNo,printOrder;
-                    liveId=(TextView)findViewById(R.id.details_textView1);
-                    liveId.setText(jsonObject.getString(Contants.KEY_AWB_LIVEID));
+
+                    TextView orgSvc,dstSvc,receiverName,weight,amount;
+                    orgSvc=(TextView)findViewById(R.id.details_textView3);
+                    orgSvc.setText(j.getString(Contants.KEY_AWB_CITYCODE));
+                    dstSvc=(TextView)findViewById(R.id.details_textView4);
+                    dstSvc.setText(j.getString(Contants.KEY_AWB_SVCCODE));
+                    receiverName=(TextView)findViewById(R.id.details_textView6);
+                    receiverName.setText(j.getString(Contants.KEY_AWB_STATUSCODE));
+                    weight=(TextView)findViewById(R.id.details_textView7);
+                    weight.setText(j.getString(Contants.KEY_AWB_EMPCODE));
+                    amount=(TextView)findViewById(R.id.details_textView8);
+                    amount.setText(j.getString(Contants.KEY_AWB_EEMPCODE));
+
+
+
+
+
+
+
+
+
+                    TextView liveId,awbNo,svcCode,scanDtTime,statusCode,empCode,eempCode,deliveryPrintNo,printOrder;
+//                    liveId=(TextView)findViewById(R.id.details_textView1);
+//                    liveId.setText(jsonObject.getString(Contants.KEY_AWB_LIVEID));
                     awbNo=(TextView)findViewById(R.id.details_textView2);
                     awbNo.setText(jsonObject.getString(Contants.KEY_AWB_AWBNO));
-                    cityCode=(TextView)findViewById(R.id.details_textView3);
-                    cityCode.setText(jsonObject.getString(Contants.KEY_AWB_CITYCODE));
-                    svcCode=(TextView)findViewById(R.id.details_textView4);
-                    svcCode.setText(jsonObject.getString(Contants.KEY_AWB_SVCCODE));
-                    scanDtTime=(TextView)findViewById(R.id.details_textView5);
-                    scanDtTime.setText(jsonObject.getString(Contants.KEY_AWB_SCANDTTIME));
-                    statusCode=(TextView)findViewById(R.id.details_textView6);
-                    statusCode.setText(jsonObject.getString(Contants.KEY_AWB_STATUSCODE));
-                    empCode=(TextView)findViewById(R.id.details_textView7);
-                    empCode.setText(jsonObject.getString(Contants.KEY_AWB_EMPCODE));
-                    eempCode=(TextView)findViewById(R.id.details_textView8);
-                    eempCode.setText(jsonObject.getString(Contants.KEY_AWB_EEMPCODE));
-                    deliveryPrintNo=(TextView)findViewById(R.id.details_textView9);
-                    deliveryPrintNo.setText(jsonObject.getString(Contants.KEY_AWB_DELIVERYPRINTNO));
-                    printOrder=(TextView)findViewById(R.id.details_textView10);
-                    printOrder.setText(jsonObject.getString(Contants.KEY_AWB_PRINTORDER));
+//                    cityCode=(TextView)findViewById(R.id.details_textView3);
+//                    cityCode.setText(jsonObject.getString(Contants.KEY_AWB_CITYCODE));
+//                    svcCode=(TextView)findViewById(R.id.details_textView4);
+//                    svcCode.setText(jsonObject.getString(Contants.KEY_AWB_SVCCODE));
+//                    scanDtTime=(TextView)findViewById(R.id.details_textView5);
+//                    scanDtTime.setText(jsonObject.getString(Contants.KEY_AWB_SCANDTTIME));
+//                    statusCode=(TextView)findViewById(R.id.details_textView6);
+//                    statusCode.setText(jsonObject.getString(Contants.KEY_AWB_STATUSCODE));
+//                    empCode=(TextView)findViewById(R.id.details_textView7);
+//                    empCode.setText(jsonObject.getString(Contants.KEY_AWB_EMPCODE));
+//                    eempCode=(TextView)findViewById(R.id.details_textView8);
+//                    eempCode.setText(jsonObject.getString(Contants.KEY_AWB_EEMPCODE));
+//                    deliveryPrintNo=(TextView)findViewById(R.id.details_textView9);
+//                    deliveryPrintNo.setText(jsonObject.getString(Contants.KEY_AWB_DELIVERYPRINTNO));
+//                    printOrder=(TextView)findViewById(R.id.details_textView10);
+//                    printOrder.setText(jsonObject.getString(Contants.KEY_AWB_PRINTORDER));
 
 
                 } catch (JSONException e) {
